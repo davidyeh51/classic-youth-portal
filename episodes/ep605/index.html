@@ -206,7 +206,7 @@
             <i class="fa-solid fa-file-lines text-sky-500 mr-2"></i>
             繁體中文精確逐字稿（語意分段與專有名詞校正）
           </h3>
-          <p class="text-xs text-slate-500 mt-0.5">以 Gemini 音訊模型高階解析，已校正作家筆名、日治歷史名詞、在地小吃與跨國大獎術語</p>
+          <p class="text-xs text-slate-500 mt-0.5">以 Gemini 音訊模型高階解析，已校正作家筆名、日治與台灣真實刑案名詞、推理類型與大獎術語</p>
         </div>
         <div class="relative w-full sm:w-72">
           <input type="text" id="transcript-search" placeholder="搜尋逐字稿關鍵字..." class="w-full text-xs pl-8 pr-8 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-sky-500">
@@ -451,13 +451,13 @@ description: 本集IC之音「經典也青春」節目，主持人陳蕙慧專�
               <div class="w-full text-center text-white py-2 rounded-xl text-xs sm:text-sm font-bold shadow-sm" style="background: ${theme.accent}">
                 ${s.flow_label || '端到端工作時序與因果演進 ───►'}
               </div>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 ${steps.map((st, i) => `
-                  <div class="bg-white rounded-xl border border-slate-200 overflow-hidden p-4 space-y-3 shadow-sm">
-                    <div class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg text-center text-white" style="background: ${i === steps.length - 1 ? theme.primary : theme.secondary}">
+                  <div class="bg-white rounded-xl border border-slate-200 overflow-hidden p-3.5 space-y-2.5 shadow-sm">
+                    <div class="text-xs sm:text-sm font-bold px-2.5 py-1.5 rounded-lg text-center text-white" style="background: ${i === steps.length - 1 ? theme.primary : theme.secondary}">
                       ${st.stage}
                     </div>
-                    <div class="text-xs sm:text-sm space-y-2 text-slate-600 leading-relaxed">
+                    <div class="text-xs space-y-1.5 text-slate-600 leading-relaxed">
                       ${(st.items || []).map(it => `<div>▪ ${it}</div>`).join('')}
                     </div>
                   </div>
@@ -468,16 +468,17 @@ description: 本集IC之音「經典也青春」節目，主持人陳蕙慧專�
         } else if (s.type === 'mckinsey_flow') {
           const stages = s.stages || [];
           const rows = s.rows || [];
+          const gridColsClass = stages.length === 3 ? 'grid-cols-4' : 'grid-cols-5';
           bodyHtml = `
             <div class="space-y-3 h-full flex flex-col justify-center">
-              <div class="grid grid-cols-5 gap-3">
-                <div class="text-xs font-bold text-slate-400 p-2.5 flex items-center">流程階段 ➔</div>
-                ${stages.map(st => `<div class="text-xs sm:text-sm font-bold text-center text-white p-2.5 rounded-xl shadow-sm" style="background: ${theme.secondary}">${st}</div>`).join('')}
+              <div class="grid ${gridColsClass} gap-3">
+                <div class="text-xs font-bold text-slate-400 p-2 flex items-center">演進階段 ➔</div>
+                ${stages.map(st => `<div class="text-xs sm:text-sm font-bold text-center text-white p-2 rounded-xl shadow-sm" style="background: ${theme.secondary}">${st}</div>`).join('')}
               </div>
               ${rows.map((r, r_idx) => `
-                <div class="grid grid-cols-5 gap-3 items-center">
-                  <div class="text-xs sm:text-sm font-bold p-3 text-white rounded-xl text-center shadow-sm" style="background: ${r_idx === rows.length - 1 ? theme.accent : theme.primary}">${r.dimension}</div>
-                  ${(r.cells || []).map(cell => `<div class="text-xs sm:text-sm p-3 bg-white rounded-xl border border-slate-200 text-slate-700 leading-relaxed shadow-sm min-h-[70px] flex items-center">${cell}</div>`).join('')}
+                <div class="grid ${gridColsClass} gap-3 items-center">
+                  <div class="text-xs sm:text-sm font-bold p-2.5 text-white rounded-xl text-center shadow-sm" style="background: ${r_idx === rows.length - 1 ? theme.accent : theme.primary}">${r.dimension}</div>
+                  ${(r.cells || []).map(cell => `<div class="text-xs p-2.5 bg-white rounded-xl border border-slate-200 text-slate-700 leading-relaxed shadow-sm min-h-[60px] flex items-center">${cell}</div>`).join('')}
                 </div>
               `).join('')}
             </div>
@@ -488,8 +489,8 @@ description: 本集IC之音「經典也青春」節目，主持人陳蕙慧專�
             <div class="space-y-3 h-full flex flex-col justify-center">
               <div class="grid grid-cols-12 gap-3 text-center text-xs sm:text-sm font-bold text-white">
                 <div class="col-span-3 p-2 text-slate-500 font-bold bg-slate-200/60 rounded-xl">評估維度</div>
-                <div class="col-span-4 md:col-span-4 p-2 rounded-xl shadow-sm" style="background: ${theme.primary}">${s.side_a_title || '見解 A'}</div>
-                <div class="col-span-5 md:col-span-5 p-2 rounded-xl shadow-sm" style="background: ${theme.secondary}">${s.side_b_title || '見解 B'}</div>
+                <div class="col-span-4 md:col-span-4 p-2 rounded-xl shadow-sm" style="background: ${theme.primary}">${s.side_a_title || '傳統思維'}</div>
+                <div class="col-span-5 md:col-span-5 p-2 rounded-xl shadow-sm" style="background: ${theme.secondary}">${s.side_b_title || '創新思維'}</div>
               </div>
               ${dims.map(d => `
                 <div class="grid grid-cols-12 gap-3 items-center">
@@ -507,8 +508,8 @@ description: 本集IC之音「經典也青春」節目，主持人陳蕙慧專�
             `<strong>【策略意涵】</strong>${s.speaker_notes.explanation || ''}`,
             `<strong>【未來展望】</strong>${s.speaker_notes.transition || ''}`
           ] : [
-            '<strong>【雙重平衡】</strong>兼顧歷史考據與大眾可讀性。',
-            '<strong>【國際破圈】</strong>以類型文學為載體包覆深層批判。',
+            '<strong>【雙高突破】</strong>兼顧嚴密智力解謎與深厚社會人性。',
+            '<strong>【國際出海】</strong>以類型文學為載體包覆深層批判。',
             '<strong>【標竿定位】</strong>樹立不可動搖的文壇戰略座標。'
           ]);
 

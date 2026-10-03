@@ -99,23 +99,23 @@
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 max-w-4xl">
         <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
           <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-podcast mr-1.5 text-amber-400"></i>收錄單集數</div>
-          <div class="text-2xl font-black mt-1" id="stat-episodes">2 集</div>
+          <div class="text-2xl font-black mt-1" id="stat-episodes">3 集</div>
           <div class="text-[10px] text-slate-400 mt-0.5">持續擴充累積中</div>
         </div>
         <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
           <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-presentation-screen mr-1.5 text-sky-400"></i>無雜訊簡報</div>
-          <div class="text-2xl font-black mt-1" id="stat-slides">20 頁</div>
+          <div class="text-2xl font-black mt-1" id="stat-slides">30 頁</div>
           <div class="text-[10px] text-slate-400 mt-0.5">16:9 寬螢幕投影</div>
         </div>
         <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
           <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-file-pen mr-1.5 text-emerald-400"></i>繁中逐字稿</div>
-          <div class="text-2xl font-black mt-1" id="stat-words">15,179 字</div>
+          <div class="text-2xl font-black mt-1" id="stat-words">22,425 字</div>
           <div class="text-[10px] text-slate-400 mt-0.5">語意分段與術語校正</div>
         </div>
         <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
-          <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-trophy mr-1.5 text-yellow-300"></i>國際與文學大獎</div>
-          <div class="text-2xl font-black mt-1">4 項</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">布克/美圖/日翻/吉川英治</div>
+          <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-trophy mr-1.5 text-yellow-300"></i>國內外重要文學獎</div>
+          <div class="text-2xl font-black mt-1">5 項</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">布克/美圖/日翻/吉川/金車</div>
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-3">
         <!-- 關鍵字搜尋框 -->
         <div class="relative w-full md:w-96">
-          <input type="text" id="global-search" placeholder="即時搜尋：書籍、作家、領讀人、歷史地景、推理、核電、殖民關鍵字..." class="w-full text-xs sm:text-sm pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-blue focus:bg-white transition">
+          <input type="text" id="global-search" placeholder="即時搜尋：書籍、作家、領讀人、薛西斯、魚眼、東野圭吾、楊双子..." class="w-full text-xs sm:text-sm pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-blue focus:bg-white transition">
           <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs sm:text-sm"></i>
           <button id="clear-global-search" class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
         </div>
@@ -135,17 +135,18 @@
         <!-- 分類標籤切換按鈕群 -->
         <div class="flex items-center space-x-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0" id="category-pills">
           <button class="cat-pill active px-3 py-1.5 rounded-lg text-xs font-bold transition bg-brand-navy text-white shadow-sm" data-category="ALL">全部單集</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="臺灣推理">臺灣推理</button>
           <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="社會派推理">社會派推理</button>
           <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="臺灣文學">臺灣文學</button>
-          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="歷史與時代小說">歷史小說</button>
-          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="國際翻譯大獎">國際大獎</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="金車推理首獎">金車首獎</button>
           <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="吉川英治文學獎">吉川英治獎</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="國際翻譯大獎">國際大獎</button>
         </div>
       </div>
 
       <!-- 搜尋結果狀態提示 -->
       <div id="search-status" class="text-xs text-slate-500 flex items-center justify-between hidden pt-1 border-t border-slate-100">
-        <span><i class="fa-solid fa-filter mr-1 text-amber-500"></i>找到 <strong id="matched-count" class="text-slate-800">2</strong> 筆符合條件的導讀單集</span>
+        <span><i class="fa-solid fa-filter mr-1 text-amber-500"></i>找到 <strong id="matched-count" class="text-slate-800">3</strong> 筆符合條件的導讀單集</span>
         <button onclick="resetFilters()" class="text-sky-600 hover:underline text-xs">重設所有篩選</button>
       </div>
     </div>
@@ -216,7 +217,7 @@
 
   <!-- 數據與即時搜尋核心邏輯 -->
   <script>
-    const allEpisodes = [{"id": "ep605", "episode_number": 605, "title": "經典也青春EP605：陳國偉談楊双子的《臺灣漫遊錄》", "podcast_title": "經典也青春", "book_title": "臺灣漫遊錄", "author": "楊双子", "guest": "陳國偉副教授（國立中興大學文學院副院長）", "host": "陳蕙慧（資深出版人 / 前時報出版總編輯）", "release_date": "2024-07-31", "duration": "24 分鐘", "cover_image": "episodes/ep605/images/podcast_artwork.jpg", "book_cover": "episodes/ep605/images/taiwan_travelogue_cover.jpg", "author_image": "episodes/ep605/images/yang_shuangzi.jpg", "award_badge": "國際布克獎 / 美國國家圖書獎", "core_thesis": "以昭和十三年鐵道飲食漫遊為骨架，拆解殖民善意與階級鴻溝，開創臺灣文學國際榮耀", "key_findings": ["楊双子《臺灣漫遊錄》橫掃美日三大國際翻譯大獎，確立華語作家全球頂尖地位", "全書以虛構翻譯體、臺中地景網絡與飲食篇章，構築多層次後殖民文學空間", "昭和十三年鐵道漫遊在飲食親密碰撞中，逐步推導出殖民鴻溝的殘酷覺醒", "兩位女主角跨階段關係演進，深刻映射「殖民凝視痛點」與「主體抗詰解方」", "「殖民者主觀善意」實質構成隱形壓迫，為當代人際「毒性關係」提供深層鏡鑑"], "action_recommendations": ["短期實踐：親訪臺中「千鶴行腳路線」，對照現代地景與昭和十三年歷史空間", "中期推進：研析虛構翻譯體與副文本敘事技巧，運用於文史創作者在地題材書寫", "長期制度：深化臺灣文學外譯制度化支持，強化多語版本推廣與全球版權輸出"], "tags": ["臺灣文學", "歷史與時代小說", "飲食文化與身分認同", "國際翻譯大獎", "性別與百合情誼", "楊双子", "臺灣漫遊錄", "陳國偉", "昭和十三年", "鐵道旅行", "米苔目", "冬瓜茶", "後殖民"], "category": "臺灣文學", "slides_count": 10, "briefing_url": "episodes/ep605/index.html", "transcript_url": "episodes/ep605/index.html#transcript-section", "pptx_path": "episodes/ep605/經典也青春EP605_陳國偉談楊双子的《臺灣漫遊錄》_無雜訊顧問簡報.pptx", "audio_url": "https://rss.soundon.fm/rssf/f91638a2-712f-4ee6-b560-3800d8919979/feedurl/727a3e44-8dad-49e7-baa2-e50be1f1657b/rssFileVip.mp3?timestamp=1790705251404", "transcript_char_count": 7571, "summary": "本集專訪國立中興大學陳國偉副教授，深入導讀作家楊双子的獲獎歷史小說《臺灣漫遊錄》。剖析如何以昭和十三年（1938年）日治台灣為背景，透過日本作家青山千鶴子與台灣通譯王千鶴的鐵道漫遊與美食探索，織就一幅深藏後殖民權力、性別、階級與認同課題的複雜圖景。更以細膩筆觸拆解「為你好」的殖民主觀善意如何轉化為毒性壓迫，並為當代人際關係帶來恆久反思。"}, {"id": "ep604", "episode_number": 604, "title": "經典也青春EP604：陳國偉談東野圭吾的《當祈禱落幕時》", "podcast_title": "經典也青春", "book_title": "當祈禱落幕時", "author": "東野圭吾", "guest": "陳國偉副教授（國立中興大學文學院副院長 / 東野圭吾解說專家）", "host": "陳蕙慧（資深出版人 / 前時報出版總編輯）", "release_date": "2024-05-18", "duration": "21 分鐘", "cover_image": "episodes/ep604/images/podcast_artwork.jpg", "book_cover": "episodes/ep604/images/podcast_artwork.jpg", "author_image": "episodes/ep604/images/podcast_artwork.jpg", "award_badge": "第48屆吉川英治文學獎", "core_thesis": "融合社會派命運悲歌與本格極致解謎，加賀恭一郎身世與日本核電悲歌的巔峰交響", "key_findings": ["《當祈禱落幕時》榮獲第48屆吉川英治文學獎，宣告「人間本格」文學體系完全成熟", "全書以「雙軌尋親謎團」、「日本橋十二座橋網絡」與「核電底層悲歌」構築三層史詩結構", "從東京廉價公寓腐屍案出發，四重嚴密因果推演直抵三十年前核電調包宿命", "加賀恭一郎 vs. 淺居忠雄：橫軸四階段因果 × 縱軸家庭原罪與贖罪救贖之矩陣對照", "「古典本格純智力詭計」vs.「社會派命運與體制拷問」在本作達成美學共生"], "action_recommendations": ["短期實踐：重構加賀恭一郎十部曲生命時間軸，親赴東京日本橋進行人形町聖地巡禮", "中期推進：借鑒東野圭吾「人間本格」範式，拒絕為解謎而解謎，深植家庭與社會現實", "長期制度：推動大眾類型小說深度研究，探索台灣在地推理小說的跨媒介轉譯"], "tags": ["日本文學", "推理小說", "社會派推理", "人間本格", "東野圭吾", "加賀恭一郎", "當祈禱落幕時", "砂之器", "吉川英治文學獎", "日本橋", "核電候鳥", "陳國偉"], "category": "社會派推理", "slides_count": 10, "briefing_url": "episodes/ep604/index.html", "transcript_url": "episodes/ep604/index.html#transcript-section", "pptx_path": "episodes/ep604/經典也青春EP604_陳國偉談東野圭吾的《當祈禱落幕時》_無雜訊顧問簡報.pptx", "audio_url": "https://rss.soundon.fm/rssf/f91638a2-712f-4ee6-b560-3800d8919979/feedurl/248ae302-f759-4e61-8490-f51dbefba63b/rssFileVip.mp3?timestamp=1789980591655", "transcript_char_count": 7608, "summary": "本集邀請中興大學文學院副院長陳國偉副教授，深入導讀日本推理天王東野圭吾榮獲第48屆吉川英治文學獎的巔峰代表作《當祈禱落幕時》。陳國偉副教授曾為東野圭吾撰寫過23篇專文解說，本集剖析本作如何將加賀恭一郎系列十年來的身世謎團與母親孤獨死真相，巧妙編織進東京廉價公寓腐屍案；並透過日本橋十二座橋的巡禮與311後對核電廠底層工人「核電候鳥」體制性犧牲的沉痛批判，向松本清張《砂之器》致敬，達成古典本格詭計與社會派命運悲歌的極致交響，樹立「人間本格」文學里程碑。"}];
+    const allEpisodes = [{"id": "ep605", "episode_number": 605, "title": "經典也青春EP605：陳國偉談楊双子的《臺灣漫遊錄》", "podcast_title": "經典也青春", "book_title": "臺灣漫遊錄", "author": "楊双子", "guest": "陳國偉副教授（國立中興大學文學院副院長）", "host": "陳蕙慧（資深出版人 / 前時報出版總編輯）", "release_date": "2024-07-31", "duration": "24 分鐘", "cover_image": "episodes/ep605/images/podcast_artwork.jpg", "book_cover": "episodes/ep605/images/taiwan_travelogue_cover.jpg", "author_image": "episodes/ep605/images/yang_shuangzi.jpg", "award_badge": "國際布克獎 / 美國國家圖書獎", "core_thesis": "以昭和十三年鐵道飲食漫遊為骨架，拆解殖民善意與階級鴻溝，開創臺灣文學國際榮耀", "key_findings": ["楊双子《臺灣漫遊錄》橫掃美日三大國際翻譯大獎，確立華語作家全球頂尖地位", "全書以虛構翻譯體、臺中地景網絡與飲食篇章，構築多層次後殖民文學空間", "昭和十三年鐵道漫遊在飲食親密碰撞中，逐步推導出殖民鴻溝的殘酷覺醒", "兩位女主角跨階段關係演進，深刻映射「殖民凝視痛點」與「主體抗詰解方」", "「殖民者主觀善意」實質構成隱形壓迫，為當代人際「毒性關係」提供深層鏡鑑"], "action_recommendations": ["短期實踐：親訪臺中「千鶴行腳路線」，對照現代地景與昭和十三年歷史空間", "中期推進：研析虛構翻譯體與副文本敘事技巧，運用於文史創作者在地題材書寫", "長期制度：深化臺灣文學外譯制度化支持，強化多語版本推廣與全球版權輸出"], "tags": ["臺灣文學", "歷史與時代小說", "飲食文化與身分認同", "國際翻譯大獎", "性別與百合情誼", "楊双子", "臺灣漫遊錄", "陳國偉", "昭和十三年", "鐵道旅行", "米苔目", "冬瓜茶", "後殖民"], "category": "臺灣文學", "slides_count": 10, "briefing_url": "episodes/ep605/index.html", "transcript_url": "episodes/ep605/index.html#transcript-section", "pptx_path": "episodes/ep605/經典也青春EP605_陳國偉談楊双子的《臺灣漫遊錄》_無雜訊顧問簡報.pptx", "audio_url": "https://rss.soundon.fm/rssf/f91638a2-712f-4ee6-b560-3800d8919979/feedurl/727a3e44-8dad-49e7-baa2-e50be1f1657b/rssFileVip.mp3?timestamp=1790705251404", "transcript_char_count": 7571, "summary": "本集專訪國立中興大學陳國偉副教授，深入導讀作家楊双子的獲獎歷史小說《臺灣漫遊錄》。剖析如何以昭和十三年（1938年）日治台灣為背景，透過日本作家青山千鶴子與台灣通譯王千鶴的鐵道漫遊與美食探索，織就一幅深藏後殖民權力、性別、階級與認同課題的複雜圖景。更以細膩筆觸拆解「為你好」的殖民主觀善意如何轉化為毒性壓迫，並為當代人際關係帶來恆久反思。"}, {"id": "ep604", "episode_number": 604, "title": "經典也青春EP604：陳國偉談東野圭吾的《當祈禱落幕時》", "podcast_title": "經典也青春", "book_title": "當祈禱落幕時", "author": "東野圭吾", "guest": "陳國偉副教授（國立中興大學文學院副院長 / 東野圭吾解說專家）", "host": "陳蕙慧（資深出版人 / 前時報出版總編輯）", "release_date": "2024-05-18", "duration": "21 分鐘", "cover_image": "episodes/ep604/images/podcast_artwork.jpg", "book_cover": "episodes/ep604/images/podcast_artwork.jpg", "author_image": "episodes/ep604/images/podcast_artwork.jpg", "award_badge": "第48屆吉川英治文學獎", "core_thesis": "融合社會派命運悲歌與本格極致解謎，加賀恭一郎身世與日本核電悲歌的巔峰交響", "key_findings": ["《當祈禱落幕時》榮獲第48屆吉川英治文學獎，宣告「人間本格」文學體系完全成熟", "全書以「雙軌尋親謎團」、「日本橋十二座橋網絡」與「核電底層悲歌」構築三層史詩結構", "從東京廉價公寓腐屍案出發，四重嚴密因果推演直抵三十年前核電調包宿命", "加賀恭一郎 vs. 淺居忠雄：橫軸四階段因果 × 縱軸家庭原罪與贖罪救贖之矩陣對照", "「古典本格純智力詭計」vs.「社會派命運與體制拷問」在本作達成美學共生"], "action_recommendations": ["短期實踐：重構加賀恭一郎十部曲生命時間軸，親赴東京日本橋進行人形町聖地巡禮", "中期推進：借鑒東野圭吾「人間本格」範式，拒絕為解謎而解謎，深植家庭與社會現實", "長期制度：推動大眾類型小說深度研究，探索台灣在地推理小說的跨媒介轉譯"], "tags": ["日本文學", "推理小說", "社會派推理", "人間本格", "東野圭吾", "加賀恭一郎", "當祈禱落幕時", "砂之器", "吉川英治文學獎", "日本橋", "核電候鳥", "陳國偉"], "category": "社會派推理", "slides_count": 10, "briefing_url": "episodes/ep604/index.html", "transcript_url": "episodes/ep604/index.html#transcript-section", "pptx_path": "episodes/ep604/經典也青春EP604_陳國偉談東野圭吾的《當祈禱落幕時》_無雜訊顧問簡報.pptx", "audio_url": "https://rss.soundon.fm/rssf/f91638a2-712f-4ee6-b560-3800d8919979/feedurl/248ae302-f759-4e61-8490-f51dbefba63b/rssFileVip.mp3?timestamp=1789980591655", "transcript_char_count": 7608, "summary": "本集邀請中興大學文學院副院長陳國偉副教授，深入導讀日本推理天王東野圭吾榮獲第48屆吉川英治文學獎的巔峰代表作《當祈禱落幕時》。陳國偉副教授曾為東野圭吾撰寫過23篇專文解說，本集剖析本作如何將加賀恭一郎系列十年來的身世謎團與母親孤獨死真相，巧妙編織進東京廉價公寓腐屍案；並透過日本橋十二座橋的巡禮與311後對核電廠底層工人「核電候鳥」體制性犧牲的沉痛批判，向松本清張《砂之器》致敬，達成古典本格詭計與社會派命運悲歌的極致交響，樹立「人間本格」文學里程碑。"}, {"id": "ep603", "episode_number": 603, "title": "經典也青春EP603：路那談薛西斯的《魚眼》", "podcast_title": "經典也青春", "book_title": "魚眼", "author": "薛西斯", "guest": "路那（資深推理評論家 / 臺灣推理作家協會理事）", "host": "陳蕙慧（資深出版人 / 前時報出版總編輯）", "release_date": "2024-05-11", "duration": "18 分鐘", "cover_image": "episodes/ep603/images/podcast_artwork.jpg", "book_cover": "episodes/ep603/images/podcast_artwork.jpg", "author_image": "episodes/ep603/images/podcast_artwork.jpg", "award_badge": "第1屆金車推理首獎", "core_thesis": "薛西斯以死者魚眼視角拆解陳高連夜案，在短篇極致密度中熔接本格解謎與人性深淵，樹立台灣新世代推理里程碑", "key_findings": ["《魚眼》榮獲第1屆金車推理首獎，以短篇篇幅交織四條平行線，達成超越長篇本格的情節密度", "以「本格解謎密度 × 角色心理層次 × 冷冽現代語言」三層維度，開創台灣類型文學全新美學", "死者「魚眼」視角打破意外死與他殺表面偏見，四重逆轉直擊「理性利益計算」之人性深淵", "從短篇《魚眼》到宏大長篇《K.I.N.G.：天災對策室》，展現薛西斯宏觀社會議題世界觀構建", "古典本格純解謎 vs. 薛西斯人性深淵本格：在動機複雜性、哲學辯證與社會記憶層面達成範式轉移"], "action_recommendations": ["短期實踐：策劃《魚眼》專題讀書會與社群討論，引導讀者深入解構多重敘事線與犯罪動機", "中期推進：舉辦類型小說創作工作坊，借鑒薛西斯「高密度佈局」與「哲學辯證語言」技巧", "長期制度：推動台灣推理文學 IP 化聯盟，引領《魚眼》與台灣在地原創邁向影視改編與國際市場"], "tags": ["臺灣推理", "本土推理小說", "金車推理首獎", "薛西斯", "魚眼", "路那", "陳高連夜案", "本格推理", "死者視角", "臺灣推理作家協會", "陳蕙慧", "社會記憶"], "category": "臺灣推理", "slides_count": 10, "briefing_url": "episodes/ep603/index.html", "transcript_url": "episodes/ep603/index.html#transcript-section", "pptx_path": "episodes/ep603/經典也青春EP603_路那談薛西斯的《魚眼》_無雜訊顧問簡報.pptx", "audio_url": "https://rss.soundon.fm/rssf/f91638a2-712f-4ee6-b560-3800d8919979/feedurl/b8098eff-7735-4154-aa10-88037b2dc241/rssFileVip.mp3?timestamp=1789445197898", "transcript_char_count": 7246, "summary": "本集專訪資深推理評論家、臺灣推理作家協會理事路那，深入導讀新世代推理名家薛西斯的成名代表作《魚眼》。《魚眼》改編自台灣重大真實歷史懸案「陳高連夜案」，以短篇篇幅精妙交織四條複雜情節線，情節偵結密度超越傳統長篇本格。透過死者「魚眼」的視角，層層擊碎公眾迷信與媒體獵巫對女性犯案的簡化標籤，直擊人性深處冷酷而理性的利益得失計算；並結合冷冽哲學辯證筆觸，打破古典本格框架，為台灣推理文學的世代交替與文藝復興樹立嶄新標竿。"}];
     let currentCategory = 'ALL';
     let searchQuery = '';
 
@@ -235,7 +236,7 @@
 
       const filtered = allEpisodes.filter(ep => {
         // 分類過濾
-        const catMatch = currentCategory === 'ALL' || (ep.tags || []).includes(currentCategory) || ep.category === currentCategory;
+        const catMatch = currentCategory === 'ALL' || (ep.tags || []).includes(currentCategory) || ep.category === currentCategory || ep.award_badge === currentCategory;
         
         // 關鍵字搜尋 (標題, 書名, 作家, 領讀人, 核心論點, 摘要, 標籤)
         if (!searchQuery) return catMatch;
