@@ -99,13 +99,10 @@
     <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 flex flex-col md:flex-row gap-6 items-center">
       <div class="w-32 h-32 sm:w-44 sm:h-44 rounded-xl overflow-hidden shadow-md shrink-0 border border-slate-200 bg-slate-50 relative group">
         <img src="images/podcast_artwork.jpg" alt="Podcast Artwork" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-          <a href="images/taiwan_travelogue_cover.jpg" target="_blank" class="text-white text-xs bg-black/60 px-2 py-1 rounded">檢視書封</a>
-        </div>
       </div>
       <div class="flex-grow space-y-3 w-full">
         <div class="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500">
-          <span class="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded-full border border-sky-200">經典也青春 EP605</span>
+          <span class="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded-full border border-sky-200">經典也青春 EP.605</span>
           <span class="bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-award mr-1"></i>國際布克獎 / 美國國家圖書獎</span>
           <span><i class="fa-regular fa-calendar mr-1"></i>2024-07-31</span>
           <span><i class="fa-solid fa-user-tie mr-1"></i>陳蕙慧（主持人）／ 陳國偉教授（領讀人）</span>
@@ -212,7 +209,7 @@
           <p class="text-xs text-slate-500 mt-0.5">以 Gemini 音訊模型高階解析，已校正作家筆名、日治歷史名詞、在地小吃與跨國大獎術語</p>
         </div>
         <div class="relative w-full sm:w-72">
-          <input type="text" id="transcript-search" placeholder="搜尋逐字稿關鍵字 (如: 冬瓜茶, 百合, 殖民)..." class="w-full text-xs pl-8 pr-8 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-sky-500">
+          <input type="text" id="transcript-search" placeholder="搜尋逐字稿關鍵字..." class="w-full text-xs pl-8 pr-8 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-sky-500">
           <i class="fa-solid fa-search absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
           <button id="clear-search" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-600 text-xs"><i class="fa-solid fa-xmark"></i></button>
         </div>
@@ -505,6 +502,16 @@ description: 本集IC之音「經典也青春」節目，主持人陳蕙慧專�
           `;
         } else if (s.type === 'bcg_matrix') {
           const quads = s.quadrants || [];
+          const soWhatPoints = s.so_what_points || (s.speaker_notes ? [
+            `<strong>【核心結論】</strong>${s.speaker_notes.conclusion || ''}`,
+            `<strong>【策略意涵】</strong>${s.speaker_notes.explanation || ''}`,
+            `<strong>【未來展望】</strong>${s.speaker_notes.transition || ''}`
+          ] : [
+            '<strong>【雙重平衡】</strong>兼顧歷史考據與大眾可讀性。',
+            '<strong>【國際破圈】</strong>以類型文學為載體包覆深層批判。',
+            '<strong>【標竿定位】</strong>樹立不可動搖的文壇戰略座標。'
+          ]);
+
           bodyHtml = `
             <div class="grid grid-cols-1 md:grid-cols-12 gap-5 h-full items-center">
               <div class="md:col-span-8 space-y-2">
@@ -520,11 +527,9 @@ description: 本集IC之音「經典也青春」節目，主持人陳蕙慧專�
                 <div class="text-xs font-bold text-center py-1 text-slate-500 tracking-wide">${s.x_axis_label || '橫軸 X'}</div>
               </div>
               <div class="md:col-span-4 p-4 rounded-xl border bg-white h-full flex flex-col justify-center space-y-2.5 shadow-sm" style="border-color: ${theme.secondary}">
-                <h4 class="font-bold text-sm text-[#004F32] flex items-center"><i class="fa-solid fa-bullseye text-amber-500 mr-1.5"></i>BCG 策略啟示 (So What)</h4>
+                <h4 class="font-bold text-sm text-[#004F32] flex items-center"><i class="fa-solid fa-bullseye text-amber-500 mr-1.5"></i>${s.so_what_title || 'BCG 策略啟示 (So What)'}</h4>
                 <ul class="text-xs space-y-2 text-slate-700 leading-relaxed">
-                  <li><strong>【雙重平衡】</strong>兼顧歷史考據厚度與現代百合可讀性，拒絕極端晦澀。</li>
-                  <li><strong>【國際破圈】</strong>以大眾文學為載體，包覆深刻後殖民批判，達成商業與學術雙贏。</li>
-                  <li><strong>【出海範式】</strong>為臺灣在地經驗走向國際市場樹立可複製的標竿定位。</li>
+                  ${soWhatPoints.map(p => `<li>${p}</li>`).join('')}
                 </ul>
               </div>
             </div>
