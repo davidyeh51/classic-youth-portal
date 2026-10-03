@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「經典也青春」經典名著顧問導讀知識庫 ｜ 大衛雲 2.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#051C2C',
+              blue: '#1E3A8A',
+              gold: '#D97706',
+              goldLight: '#FEF3C7',
+              forest: '#004F32',
+              emerald: '#10B981',
+              dark: '#0B132B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-nav {
+      background: rgba(5, 28, 44, 0.92);
+      backdrop-filter: blur(16px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #051C2C 0%, #1E3A8A 50%, #004F32 100%);
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(5, 28, 44, 0.12), 0 10px 10px -5px rgba(5, 28, 44, 0.04);
+    }
+    mark.highlight {
+      background-color: #FEF08A;
+      color: #854D0E;
+      padding: 0.1rem 0.25rem;
+      border-radius: 0.2rem;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+  <!-- 頂部導覽列 -->
+  <header class="glass-nav text-white sticky top-0 z-50 border-b border-slate-700/80 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 font-black text-lg shadow-sm">
+          <i class="fa-solid fa-book-open"></i>
+        </span>
+        <div>
+          <span class="text-xs text-amber-400 font-bold tracking-widest uppercase">CLASSIC YOUTH KNOWLEDGE BASE</span>
+          <h1 class="text-base sm:text-lg font-black tracking-tight leading-tight">「經典也青春」顧問導讀知識庫</h1>
+        </div>
+      </div>
+      <div class="flex items-center space-x-3">
+        <a href="#about-framework" class="hidden md:inline-flex items-center text-xs text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 transition">
+          <i class="fa-solid fa-diagram-project mr-1.5 text-sky-400"></i>未來擴充架構
+        </a>
+        <a href="https://github.com/davidyeh51/classic-youth-portal" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition flex items-center shadow-sm">
+          <i class="fa-brands fa-github mr-1.5 text-slate-300"></i>
+          <span>GitHub 專案</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero 旗艦視覺區 -->
+  <section class="hero-gradient text-white py-12 md:py-16 px-4 sm:px-6 lg:px-8 shadow-inner relative overflow-hidden">
+    <div class="max-w-7xl mx-auto relative z-10 space-y-6">
+      <div class="inline-flex items-center space-x-2 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold px-3 py-1 rounded-full backdrop-blur">
+        <i class="fa-solid fa-sparkles"></i>
+        <span>大衛雲 2.0 ｜ 前 BCG 顧問森秀明「8 種簡報版型」× McKinsey・BCG・Accenture 視覺系統</span>
+      </div>
+
+      <div class="max-w-3xl space-y-3">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+          用跨國管顧思維，<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500">解讀跨越時空的經典名著</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          收錄 IC之音《經典也青春》精選單集，結合 Gemini 音訊模型高精確繁中語意校正、16:9 無雜訊顧問簡報與逐頁三段式講稿備忘錄，打造可無限擴充的當代人文智庫。
+        </p>
+      </div>
+
+      <!-- 知識庫 KPI 儀表板 -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 max-w-4xl">
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
+          <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-podcast mr-1.5 text-amber-400"></i>收錄單集數</div>
+          <div class="text-2xl font-black mt-1" id="stat-episodes">1 集</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">持續擴充累積中</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
+          <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-presentation-screen mr-1.5 text-sky-400"></i>無雜訊簡報</div>
+          <div class="text-2xl font-black mt-1" id="stat-slides">10 頁</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">16:9 寬螢幕投影</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
+          <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-file-pen mr-1.5 text-emerald-400"></i>繁中逐字稿</div>
+          <div class="text-2xl font-black mt-1" id="stat-words">7,571 字</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">語意分段與術語校正</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl p-4">
+          <div class="text-xs text-slate-300 flex items-center"><i class="fa-solid fa-trophy mr-1.5 text-yellow-300"></i>國際大獎涵蓋</div>
+          <div class="text-2xl font-black mt-1">3 項</div>
+          <div class="text-[10px] text-slate-400 mt-0.5">布克獎/美圖獎/日翻獎</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 搜尋與篩選中樞 (Sticky Search & Filter Bar) -->
+  <section class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+        <!-- 關鍵字搜尋框 -->
+        <div class="relative w-full md:w-96">
+          <input type="text" id="global-search" placeholder="即時搜尋：書籍、作家、領讀人、歷史地景、飲食、後殖民關鍵字..." class="w-full text-xs sm:text-sm pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-blue focus:bg-white transition">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs sm:text-sm"></i>
+          <button id="clear-global-search" class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- 分類標籤切換按鈕群 -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0" id="category-pills">
+          <button class="cat-pill active px-3 py-1.5 rounded-lg text-xs font-bold transition bg-brand-navy text-white shadow-sm" data-category="ALL">全部單集</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="臺灣文學">臺灣文學</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="歷史與時代小說">歷史與時代小說</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="飲食文化與身分認同">飲食文化</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="國際翻譯大獎">國際大獎</button>
+          <button class="cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-category="性別與百合情誼">性別與百合</button>
+        </div>
+      </div>
+
+      <!-- 搜尋結果狀態提示 -->
+      <div id="search-status" class="text-xs text-slate-500 flex items-center justify-between hidden pt-1 border-t border-slate-100">
+        <span><i class="fa-solid fa-filter mr-1 text-amber-500"></i>找到 <strong id="matched-count" class="text-slate-800">1</strong> 筆符合條件的導讀單集</span>
+        <button onclick="resetFilters()" class="text-sky-600 hover:underline text-xs">重設所有篩選</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 單集卡片列表 (Episode Cards Grid) -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <div id="episodes-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- 由 JavaScript 動態渲染卡片 -->
+    </div>
+
+    <!-- 無搜尋結果提示 -->
+    <div id="no-results" class="hidden text-center py-16 space-y-4">
+      <div class="w-16 h-16 rounded-full bg-slate-200 text-slate-400 flex items-center justify-center mx-auto text-2xl">
+        <i class="fa-solid fa-book-bookmark"></i>
+      </div>
+      <h3 class="text-lg font-bold text-slate-700">查無符合關鍵字的單集資料</h3>
+      <p class="text-sm text-slate-500">請嘗試更換搜尋關鍵字，或點擊「重設所有篩選」重新檢視。</p>
+      <button onclick="resetFilters()" class="mt-2 text-xs bg-brand-navy text-white px-4 py-2 rounded-lg font-bold hover:bg-brand-blue transition">重設所有篩選</button>
+    </div>
+  </main>
+
+  <!-- 未來資料擴充架構說明區 -->
+  <section id="about-framework" class="bg-white border-t border-slate-200 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 tracking-wider uppercase">SCALABLE ARCHITECTURE</span>
+        <h3 class="text-2xl font-black text-slate-900 mt-1">「經典也青春」知識庫未來資料擴充架構</h3>
+        <p class="text-sm text-slate-500 mt-1">本平台已建立高度解耦之資料驅動（Data-Driven）擴充架構，只需單行指令即可將任意 Apple Podcast 單集自動轉化為完整知識庫資源：</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-sm">1</div>
+          <h4 class="font-bold text-slate-900 text-sm">Apple Podcast 解析</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">輸入節目單集 URL，透過 iTunes Search API 自動取得 RSS Feed 並下載原始高音質 MP3 音檔。</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">2</div>
+          <h4 class="font-bold text-slate-900 text-sm">Gemini 音訊理解</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">調用 Gemini API 生成帶有時間標記與專有名詞校正的繁中逐字稿，並提煉 5 大核心發現。</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">3</div>
+          <h4 class="font-bold text-slate-900 text-sm">/zero-noise-pptx</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">套用前 BCG 顧問森秀明「8 種簡報版型」與三大管顧視覺系統，為每頁自動檢索配置高解析度插圖並生成 16:9 .pptx。</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-sm">4</div>
+          <h4 class="font-bold text-slate-900 text-sm">中樞自動登記</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">新單集輸出至 <code>episodes/epXXX/</code>，自動登記回 <code>data/episodes.json</code>，大廳首頁即時連動上線！</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-semibold text-slate-200">「經典也青春」節目知識庫與顧問簡報導讀大廳 ｜ 大衛雲 2.0</p>
+      <p class="text-slate-500">前 BCG 顧問森秀明「8 種簡報版型」 × McKinsey・BCG・Accenture 三大管顧視覺系統</p>
+      <p class="text-slate-600">本站音訊來源為 IC之音 與 Readmoo讀墨 官方播客，版權歸原製播單位所有</p>
+    </div>
+  </footer>
+
+  <!-- 數據與即時搜尋核心邏輯 -->
+  <script>
+    const allEpisodes = [{"id": "ep605", "episode_number": 605, "title": "經典也青春EP605：陳國偉談楊双子的《臺灣漫遊錄》", "podcast_title": "經典也青春", "book_title": "臺灣漫遊錄", "author": "楊双子", "guest": "陳國偉副教授（國立中興大學文學院副院長）", "host": "陳蕙慧（資深出版人 / 前時報出版總編輯）", "release_date": "2024-07-31", "duration": "24 分鐘", "cover_image": "episodes/ep605/images/podcast_artwork.jpg", "book_cover": "episodes/ep605/images/taiwan_travelogue_cover.jpg", "author_image": "episodes/ep605/images/yang_shuangzi.jpg", "core_thesis": "以昭和十三年鐵道飲食漫遊為骨架，拆解殖民善意與階級鴻溝，開創臺灣文學國際榮耀", "key_findings": ["楊双子《臺灣漫遊錄》橫掃美日三大國際翻譯大獎，確立華語作家全球頂尖地位", "全書以虛構翻譯體、臺中地景網絡與飲食篇章，構築多層次後殖民文學空間", "昭和十三年鐵道漫遊在飲食親密碰撞中，逐步推導出殖民鴻溝的殘酷覺醒", "兩位女主角跨階段關係演進，深刻映射「殖民凝視痛點」與「主體抗詰解方」", "「殖民者主觀善意」實質構成隱形壓迫，為當代人際「毒性關係」提供深層鏡鑑"], "tags": ["臺灣文學", "歷史與時代小說", "飲食文化與身分認同", "國際翻譯大獎", "性別與百合情誼", "楊双子", "臺灣漫遊錄", "陳國偉", "昭和十三年", "鐵道旅行", "米苔目", "冬瓜茶", "後殖民"], "category": "臺灣文學", "slides_count": 10, "briefing_url": "episodes/ep605/index.html", "transcript_url": "episodes/ep605/index.html#transcript-section", "pptx_path": "episodes/ep605/經典也青春EP605_陳國偉談楊双子的《臺灣漫遊錄》_無雜訊顧問簡報.pptx", "audio_url": "https://rss.soundon.fm/rssf/f91638a2-712f-4ee6-b560-3800d8919979/feedurl/727a3e44-8dad-49e7-baa2-e50be1f1657b/rssFileVip.mp3?timestamp=1790705251404", "transcript_char_count": 7571, "summary": "本集專訪國立中興大學陳國偉副教授，深入導讀作家楊双子的獲獎歷史小說《臺灣漫遊錄》。剖析如何以昭和十三年（1938年）日治台灣為背景，透過日本作家青山千鶴子與台灣通譯王千鶴的鐵道漫遊與美食探索，織就一幅深藏後殖民權力、性別、階級與認同課題的複雜圖景。更以愛情小說的細膩筆觸，拆解「為你好」的殖民主觀善意如何轉化為毒性壓迫，並為當代人際關係帶來恆久反思。"}];
+    let currentCategory = 'ALL';
+    let searchQuery = '';
+
+    function renderCards() {
+      const grid = document.getElementById('episodes-grid');
+      const noResults = document.getElementById('no-results');
+      const searchStatus = document.getElementById('search-status');
+      const matchedCount = document.getElementById('matched-count');
+
+      const filtered = allEpisodes.filter(ep => {
+        // 分類過濾
+        const catMatch = currentCategory === 'ALL' || (ep.tags || []).includes(currentCategory) || ep.category === currentCategory;
+        
+        // 關鍵字搜尋 (標題, 書名, 作家, 領讀人, 核心論點, 摘要, 標籤)
+        if (!searchQuery) return catMatch;
+        
+        const q = searchQuery.toLowerCase();
+        const textTarget = [
+          ep.title,
+          ep.book_title,
+          ep.author,
+          ep.guest,
+          ep.host,
+          ep.core_thesis,
+          ep.summary,
+          ...(ep.key_findings || []),
+          ...(ep.tags || [])
+        ].join(' ').toLowerCase();
+
+        return catMatch && textTarget.includes(q);
+      });
+
+      matchedCount.innerText = filtered.length;
+      if (searchQuery || currentCategory !== 'ALL') {
+        searchStatus.classList.remove('hidden');
+      } else {
+        searchStatus.classList.add('hidden');
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(ep => {
+        return `
+          <article class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover flex flex-col justify-between overflow-hidden">
+            <div class="p-6 space-y-4">
+              <!-- 頂部資訊條 -->
+              <div class="flex items-center justify-between">
+                <span class="bg-amber-50 text-amber-800 text-xs font-extrabold px-2.5 py-1 rounded-full border border-amber-200 flex items-center">
+                  <i class="fa-solid fa-podcast mr-1.5 text-amber-600"></i>EP.${ep.episode_number}
+                </span>
+                <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>${ep.duration} ｜ ${ep.release_date}</span>
+              </div>
+
+              <!-- 主題視覺與標題 -->
+              <div class="flex gap-4 items-start">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 border border-slate-200 bg-slate-50 shadow-sm">
+                  <img src="${ep.cover_image}" alt="${ep.title}" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-1.5 flex-grow min-w-0">
+                  <h3 class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug line-clamp-2 hover:text-brand-blue transition">
+                    <a href="${ep.briefing_url}">${highlightText(ep.title, searchQuery)}</a>
+                  </h3>
+                  <div class="text-xs text-slate-500 font-medium">
+                    <span><i class="fa-solid fa-user-tie mr-1 text-slate-400"></i>${highlightText(ep.guest, searchQuery)}</span>
+                  </div>
+                  <div class="text-xs text-slate-400">
+                    <span><i class="fa-solid fa-microphone mr-1 text-slate-400"></i>主持：${ep.host}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 核心論點引言卡 -->
+              <div class="bg-slate-50 rounded-xl p-3.5 border-l-4 border-amber-500 text-xs text-slate-700 leading-relaxed font-medium">
+                <strong class="text-amber-700 block mb-0.5">🎯 顧問核心發現：</strong>
+                ${highlightText(ep.core_thesis, searchQuery)}
+              </div>
+
+              <!-- 摘要內文 -->
+              <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                ${highlightText(ep.summary, searchQuery)}
+              </p>
+
+              <!-- 關鍵字標籤群 -->
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${(ep.tags || []).map(t => `
+                  <button onclick="filterByTag('${t}')" class="text-[11px] font-medium bg-slate-100 hover:bg-slate-200 text-slate-600 px-2 py-0.5 rounded transition">
+                    #${highlightText(t, searchQuery)}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- 底部動作按鈕列 -->
+            <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+              <a href="${ep.briefing_url}" class="flex items-center text-xs font-bold text-white bg-[#051C2C] hover:bg-[#1E3A8A] px-3.5 py-2 rounded-xl transition shadow-sm">
+                <i class="fa-solid fa-presentation-screen mr-1.5 text-amber-400"></i>線上顧問簡報
+              </a>
+              <div class="flex items-center space-x-2">
+                <a href="${ep.transcript_url}" class="text-xs font-semibold text-slate-700 hover:text-sky-700 bg-white hover:bg-slate-100 px-3 py-2 rounded-xl border border-slate-200 transition">
+                  <i class="fa-solid fa-file-lines mr-1 text-sky-500"></i>逐字稿
+                </a>
+                <a href="${ep.pptx_path}" download class="text-xs font-bold text-slate-900 bg-amber-400 hover:bg-amber-300 px-3 py-2 rounded-xl transition shadow-sm">
+                  <i class="fa-solid fa-download mr-1"></i>PPTX
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function highlightText(text, query) {
+      if (!query || !text) return text;
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<mark class="highlight">$1</mark>');
+    }
+
+    function filterByTag(tag) {
+      currentCategory = tag;
+      updatePills();
+      renderCards();
+    }
+
+    function updatePills() {
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-category') === currentCategory) {
+          btn.className = 'cat-pill active px-3 py-1.5 rounded-lg text-xs font-bold transition bg-brand-navy text-white shadow-sm';
+        } else {
+          btn.className = 'cat-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 hover:bg-slate-200 text-slate-700';
+        }
+      });
+    }
+
+    function resetFilters() {
+      currentCategory = 'ALL';
+      searchQuery = '';
+      document.getElementById('global-search').value = '';
+      document.getElementById('clear-global-search').classList.add('hidden');
+      updatePills();
+      renderCards();
+    }
+
+    // 搜尋與篩選事件綁定
+    const searchInput = document.getElementById('global-search');
+    const clearBtn = document.getElementById('clear-global-search');
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      if (searchQuery) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderCards();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearBtn.classList.add('hidden');
+      renderCards();
+    });
+
+    document.querySelectorAll('.cat-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentCategory = btn.getAttribute('data-category');
+        updatePills();
+        renderCards();
+      });
+    });
+
+    window.onload = () => {
+      renderCards();
+    };
+  </script>
+</body>
+</html>
